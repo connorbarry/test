@@ -1,0 +1,54 @@
+import sqlite3
+from sqlite3 import Error
+
+
+def create_connection(db_file):
+    """ create a database connection to the SQLite database
+        specified by the db_file
+    :param db_file: database file
+    :return: Connection object or None
+    """
+    conn = None
+    try:
+        conn = sqlite3.connect('alpha_0.5.db')
+    except Error as e:
+        print(e)
+
+    return conn
+
+
+def update_user(conn, user):
+    # """
+    # update priority, begin_date, and end date of a task
+    # :param conn:
+    # :param task:
+    # :return: project id
+    # """
+
+    # WORK IN PROGRESS BELOW, ADD all USER tables in the SQL statment
+    # THEN edit the function call in the main function to accept user inputs for first, lastname, etc
+    
+    sql = ''' UPDATE user
+              SET id = ? ,
+                  firstName = ? ,
+                  lastName = ? ,
+                  
+              WHERE id = ?'''
+    cur = conn.cursor()
+    cur.execute(sql, task)
+    conn.commit()
+
+
+def main():
+    database = r"C:\sqlite\db\pythonsqlite.db"
+
+    # create a database connection
+    # Update the function call to accept user input
+    
+    conn = create_connection(database)
+    with conn:
+        update_task(conn, (2, '2015-01-04', '2015-01-06', 2))
+
+
+if __name__ == '__main__':
+    main()
