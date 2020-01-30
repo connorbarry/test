@@ -1,0 +1,30 @@
+def main():
+
+    continue_entry = True
+
+    while continue_entry == True:
+        filename = str(input("Enter your account filename: "))
+        add_line = [str(input("Enter your email address: "))]
+        first_name = [str(input("Enter your first name: "))]
+        last_name = [str(input("Enter your last name: "))]
+        savings = [int(input("Enter your total savings: "))]
+        monthly_income = [int(input("Enter your monthly income: "))]
+        monthly_expenses = [int(input("Enter your monthly expenses: "))]
+        routing_number = [str(input("Enter your bank routing number: "))]
+
+        row_list = [["Email", "First Name", "Last Name", "Savings", "Monthly Income", "Monthly Expenses", "Routing Number"],
+                [add_line, first_name, last_name, savings, monthly_income, monthly_expenses, routing_number], ]
+
+        with open(filename+'.csv', 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows(row_list)
+        print("Account file for " + str(first_name) + str(last_name) + " created!")
+
+        keep_going = input("Add another entry? Y/N ")
+        if keep_going == "N":
+            print("Ending account entry process.. ")
+
+            stop
+
+
+main()
